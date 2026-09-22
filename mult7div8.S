@@ -1,18 +1,24 @@
 .global mult7div8
 # a in %dil (signed char), overflow pointer in %rsi; result in %eax
 mult7div8:
-  movl %dil, %eax     # %eax = a 
-  imul 7, %eax        # %eax = a*7
-
-
+  movsbl %dil, %eax     # %eax = a 
+  imul $7, %eax         # %eax = a*7
+  cmpb $0, %dil         #  a -0
+  cmpl $0, %eax         # mult -0 
+  jge .L2
+  cmpb $0, %dil         #  a -0
+  cmpl $0, %eax         # mult -0 
+  jne .L2
   movl $0, (%rsi)     # *overflow = 0
   jmp .L3             # jump to .L3
 
-.L2  
+.L2:  
   movl $1, (%rsi)     # *overflow = 1
 
 .L3:
-  idivl $8            # %eax = %eax / 8 
+  movl $1, %edx       # %edx = 1
+  movl $8, %ebx       # %ebx = 8
+  idivl %ebx          # %eax = %eax / 8 
   ret
 
 
