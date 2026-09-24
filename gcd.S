@@ -10,7 +10,7 @@ gcd:
     idivl %ecx          # %eax = a/b  and %edx = a % b
     movl %esi, %edi     # %edi = b 
     movl %edx, %esi     # b = a % b
-    call gcd
+    call gcd            # recursive call gcd
     ret
     
 .L2:
