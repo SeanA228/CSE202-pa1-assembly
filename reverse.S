@@ -20,7 +20,7 @@ reverse:
   jmp .L2                           # jumps to .L2
 
 .L3: 
-  ret
+  ret                               # return
 
 
 # void reverse(char **list, unsigned n){
