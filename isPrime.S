@@ -30,10 +30,10 @@ isPrime:
   cmpl $0, %edx     # %edx -0 
   je .L2            # jumps to .L2 if %edx = 0 
   addl $2, %esi     # i = i+2
-  jmp .L4 # jumps to .L4 to continue the for loop 
+  jmp .L4           # jumps to .L4 to continue the for loop 
 
 .L5:
-  movl $1, %eax # %eax = 1
+  movl $1, %eax     # %eax = 1
   ret
 
 # int isPrime(int n){
