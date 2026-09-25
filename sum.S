@@ -16,7 +16,7 @@ sum:
     jmp .L1                        # jumps to .L1
 
 .L2:
-    ret 
+    ret                             #return 
 
 
 # sum of the elements of a linkedlist in C
