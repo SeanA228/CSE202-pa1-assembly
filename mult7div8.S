@@ -3,6 +3,7 @@
 mult7div8:
   movsbl %dil, %eax   # %eax = a 
   imul $7, %eax       # %eax = a*7
+  movsbl %al, %eax    # %eax = mult
   cmpb $0, %dil       # a - 0
   setg %r8b           # sets %r8b to 1 if a>0
   setl %r9b           # sets %r9b to 1 if a<0
